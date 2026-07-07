@@ -40,7 +40,7 @@ const serviceIcons = [Compass, HeartHandshake, ShieldCheck, Building2, Users, Ro
 const serviceImages: Record<string, string> = {
   "leadership-organizational-development": "/1.jpg",
   "governance-institutional-strengthening": "/2.jpg",
-  "gender-equality-social-inclusion": "/3.jpg",
+  "gender-equality-social-inclusion": "/services/45.jpg",
   "social-impact-community-climate": "/4.jpeg",
 };
 
@@ -75,14 +75,15 @@ function Hero() {
           <div className="absolute inset-0 gradient-hero-overlay" />
         </div>
         <div className="container-x py-12 md:py-16 max-w-4xl mr-auto md:pl-[35px]">
-          <p className="eyebrow-light">
-            <Sparkles className="h-3.5 w-3.5" /> People · Culture · Social Impact
+          <p className="text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-ivory/80">
+            Leadership|Organizational development|Governance |Gender Equality|Social Impact
           </p>
-          <h1 className="mt-6 display-xl text-ivory">
-            Building Healthy, Inclusive & High-Performing Organizations
+          <h1 className="mt-6 display-lg text-ivory">
+            Building Inclusive Leadership. Strengthening Institutions.
+            <span className="text-orange-500">Creating Lasting Impact.</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-ivory/85 max-w-2xl leading-relaxed">
-            Build stronger leaders, healthier workplaces, and lasting organizational impact through expert consultancy, training, and organizational development.
+          <p className="mt-6 text-xs md:text-sm text-ivory/85 max-w-2xl leading-relaxed">
+            EquiRise Development Consulting Limited partners with organizations, governments, development agencies, and communities to strengthen leadership, build institutional capacity, and deliver sustainable social impact.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <button
@@ -129,11 +130,11 @@ function Partners() {
       <div className="md:hidden">
         <div className="container-x flex gap-4 justify-center flex-wrap">
           {partnerLogos.map((logo, i) => (
-            <div key={i} className="h-12 flex items-center justify-center">
+            <div key={i} className="h-16 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[90px] object-contain opacity-100"
+                className="h-full w-auto max-w-[120px] object-contain opacity-100"
               />
             </div>
           ))}
@@ -144,11 +145,11 @@ function Partners() {
       <div className="hidden md:block">
         <div className="container-x flex gap-16 justify-center">
           {partnerLogos.map((logo, i) => (
-            <div key={i} className="h-20 flex items-center justify-center">
+            <div key={i} className="h-24 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[160px] object-contain opacity-100"
+                className="h-full w-auto max-w-[200px] object-contain opacity-100"
               />
             </div>
           ))}
@@ -172,7 +173,7 @@ function Services() {
             </h2>
           </div>
           <p className="lg:col-span-5 text-muted-foreground text-base md:text-lg leading-relaxed">
-            We work across the human systems of your organization — from the boardroom to the frontline, from strategy to safeguarding — so that change actually holds.
+            We deliver integrated consulting and capacity-building solutions that strengthen organizations, empower communities, and create measurable impact.
           </p>
         </div>
 
@@ -306,7 +307,7 @@ function WhyUs() {
       d: "Our work equips your people with the skills, systems, and confidence needed to sustain improvements long after our engagement.",
     },
     {
-      t: "We Understand Multiple Sectors",
+      t: "Cross-Sector Expertise",
       d: "Our experience across government, development, corporate, financial, education, and community sectors enables us to provide integrated solutions.",
     },
     {
@@ -355,7 +356,7 @@ function HowWeWork() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow-light">How we work</p>
-            <h2 className="mt-4 display-lg text-ivory">A method that respects your people and your time.</h2>
+            <h2 className="mt-4 display-lg text-ivory">Partnering with clients every step of the way</h2>
           </div>
           <ol className="lg:col-span-8 grid gap-4">
             {steps.map((s) => (
@@ -541,14 +542,14 @@ function TeamSection() {
       href: "/team/dr-betty-ogange",
     },
     {
-      name: "Member Four",
-      role: "Role / Title",
+      name: "Dr. Samson Ndonye",
+      role: "Governance, Organizational Development & Capacity Building Consultant",
       image: "/team/role1.png",
       href: "/team/member-4",
     },
     {
-      name: "Member Five",
-      role: "Role / Title",
+      name: "Dr. Margaret Kagwe Njuguna",
+      role: "Mental Health & Psychosocial Wellbeing Consultant",
       image: "/team/role2.png",
       href: "/team/member-5",
     },

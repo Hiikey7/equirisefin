@@ -180,7 +180,7 @@
 }
 
 @utility gradient-hero-overlay {
-  background: var(--gradient-hero);
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.8) 100%);
 }
 
 @utility rule-green {

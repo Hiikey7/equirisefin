@@ -60,13 +60,14 @@ function Events() {
           <div className="grid gap-6 lg:grid-cols-3">
             {events.map((e, idx) => {
               const d = new Date(e.date);
+              const statusLabel = new Date(e.date) > new Date() ? "Upcoming" : "Completed";
               return (
                 <article key={e.title} className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-[var(--shadow-soft)] transition flex flex-col">
                   {e.image && (
                     <div className="aspect-[16/9] w-full overflow-hidden relative">
                       <img src={e.image} alt={e.title} className="h-full w-full object-cover" />
                       <div className="absolute top-3 right-3 inline-flex rounded-full bg-green px-3 py-1 text-xs font-semibold text-white">
-                        Completed
+                        {statusLabel}
                       </div>
                     </div>
                   )}

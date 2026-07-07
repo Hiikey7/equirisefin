@@ -244,21 +244,21 @@ function About() {
           <div>
             <div className="overflow-hidden rounded-2xl">
               <Link to="/team/member-4">
-                <img src="/team/role1.png" alt="Member Four" className="w-full h-[360px] object-cover rounded-2xl shadow-sm" />
+                <img src="/team/role1.png" alt="Dr. Samson Ndonye" className="w-full h-[360px] object-cover rounded-2xl shadow-sm" />
               </Link>
             </div>
-            <h3 className="mt-6 text-2xl font-semibold"><Link to="/team/member-4">Member Four</Link></h3>
-            <p className="mt-2 text-sm text-muted-foreground">Role / Title</p>
+            <h3 className="mt-6 text-2xl font-semibold"><Link to="/team/member-4">Dr. Samson Ndonye</Link></h3>
+            <p className="mt-2 text-sm text-muted-foreground">Governance, Organizational Development & Capacity Building Consultant</p>
           </div>
 
           <div>
             <div className="overflow-hidden rounded-2xl">
               <Link to="/team/member-5">
-                <img src="/team/role2.png" alt="Member Five" className="w-full h-[360px] object-cover rounded-2xl shadow-sm" />
+                <img src="/team/role2.png" alt="Dr. Margaret Kagwe Njuguna" className="w-full h-[360px] object-cover rounded-2xl shadow-sm" />
               </Link>
             </div>
-            <h3 className="mt-6 text-2xl font-semibold"><Link to="/team/member-5">Member Five</Link></h3>
-            <p className="mt-2 text-sm text-muted-foreground">Role / Title</p>
+            <h3 className="mt-6 text-2xl font-semibold"><Link to="/team/member-5">Dr. Margaret Kagwe Njuguna</Link></h3>
+            <p className="mt-2 text-sm text-muted-foreground">Mental Health & Psychosocial Wellbeing Consultant</p>
           </div>
         </div>
       </section>

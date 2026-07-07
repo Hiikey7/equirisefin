@@ -33,8 +33,8 @@ function Profile() {
             <p className="mt-4 text-sm text-muted-foreground">Medical Doctor & Holistic Weight Management Specialist</p>
 
             <div className="mt-6 space-y-4">
-              <p>Dr. Mary Keah Otieno is a medical doctor and holistic weight management specialist passionate about shifting healthcare from treatment to prevention. As the founder of the Holistic Weight Management Centre in Nairobi, she integrates clinical medicine, nutrition, fitness, and behavioral wellness to help individuals reclaim their health sustainably.</p>
-              <p>She believes that true wellness is holistic — encompassing body, mind, purpose, and family — and she uses her voice to inspire women to take charge of their health and design lives of intention and impact.</p>
+              <p>Dr. Mary Keah Otieno is a medical doctor with a strong background in preventive healthcare, holistic wellness, and community health. She specializes in designing practical health and wellbeing programmes that promote healthy lifestyles, disease prevention, and behaviour change for individuals, organizations, and communities.</p>
+              <p>She brings expertise in workplace wellbeing, health promotion, women's health, and community engagement, supporting EquiRise's mission of strengthening organizations and empowering communities through sustainable health and development solutions.</p>
             </div>
           </div>
         </div>

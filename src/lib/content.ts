@@ -139,22 +139,34 @@ export const industries = [
 ];
 
 export const methodology = [
-  { step: "01", t: "Listen", d: "We take time to learn about your organization, people, goals, and operating environment through consultations, interviews, workshops, and stakeholder engagement." },
-  { step: "02", t: "Assess", d: "Organizational, leadership, governance, gender, policy, and capacity assessments — grounding recommendations in evidence, not assumption." },
-  { step: "03", t: "Design", d: "Customized, practical solutions aligned to international best practice yet responsive to local realities, built for sustainability and measurable impact." },
-  { step: "04", t: "Deliver", d: "Consulting, facilitation, executive coaching, capacity building, technical assistance, and strategic advisory — implemented with your team." },
-  { step: "05", t: "Measure", d: "Clear indicators of success, continuous monitoring, and evaluation of both organizational performance and broader impact." },
-  { step: "06", t: "Sustain", d: "We leave organizations stronger — transferring knowledge, strengthening systems, and supporting continuous improvement long after engagement ends." },
+  { step: "01", t: "Understand", d: "We listen to understand your needs, priorities, and context." },
+  { step: "02", t: "Assess", d: "We identify strengths, challenges, and opportunities through collaborative assessments." },
+  { step: "03", t: "Co-Create", d: "We design practical solutions tailored to your organization or community." },
+  { step: "04", t: "Deliver", d: "We implement solutions through consulting, training, facilitation, and technical support." },
+  { step: "05", t: "Support", d: "We provide follow-up, coaching, and learning to sustain results over time." },
 ];
 
 export const events = [
+  {
+    date: "2026-09-30",
+    title: "Empowering Women In baringo County MOSEWO.",
+    location: "Baringo County, Kenya",
+    tag: "Upcoming Event",
+    excerpt: "A new upcoming event focused on resilient women's health, financial inclusion, economic empowerment, and climate-smart agriculture in Baringo County.",
+    image: "/PNG/4.jpeg",
+    fullDescription: `Building Resilient Women through Health, Financial Inclusion, Economic Empowerment, and Climate-Smart Agriculture is an upcoming event in Baringo County, Kenya. The programme will bring together women leaders, community changemakers, and agricultural practitioners to explore practical pathways that strengthen wellbeing, livelihoods, and climate resilience.
+
+Participants will learn how integrated health services, inclusive finance, enterprise development, and climate-smart farming practices can work together to build stronger, more resilient communities. EquiRise will support local stakeholders with sessions on leadership, financial inclusion, sustainable agriculture, and women-centered economic empowerment.
+
+The event is designed to accelerate action, deepen collaboration, and equip women with tools to thrive in changing climatic and economic conditions. Location and date are forthcoming, with further details to be shared as the event approaches.`,
+  },
   {
     date: "2026-03-07",
     title: "International Women's Day 2026: Give to Gain",
     location: "Nairobi, Kenya",
     tag: "Event",
     excerpt: "This Women's Day 2026, the spirit of Give to Gain shines through powerful partnerships supporting women and girls. Join us as organizations and brands come together to create opportunities that empower the next generation of women leaders.",
-    image: "/PNG/6.jpeg",
+    image: "/iwd2026/3.jpeg",
     fullDescription: `This year's International Women's Day 2026 served as a powerful moment to celebrate the achievements, resilience, and impact of women across communities. Under the theme "Give to Gain," the celebration emphasized the importance of investing in women and girls as a pathway to building stronger and more inclusive societies.
 
 Throughout the day, the message was clear: when women are given opportunities, knowledge, and support, they are empowered to lead, innovate, and create lasting change. The theme encouraged individuals, organizations, and communities to play an active role in uplifting women by opening doors to mentorship, education, leadership, and economic opportunities.
@@ -173,6 +185,15 @@ The event brought together voices and partners committed to advancing women's em
       { name: "Capital FM", url: "https://www.capitalfm.co.ke/business/2026/03/embrace-saving-and-investment-for-financial-freedom-women-told/" },
       { name: "The Standard Newspaper", url: "https://www.standardmedia.co.ke/national/article/2001542640/women-told-to-save-invest-for-independence" },
     ],
+  },
+  {
+    date: "2025-03-07",
+    title: "International Women's Day 2025: Accelerate Action",
+    location: "Nairobi, Kenya",
+    tag: "Completed Event",
+    excerpt: "International Women's Day 2025 celebrated acceleration, action, and partnership in Nairobi, bringing leaders together to strengthen gender equality and community impact.",
+    image: "/PNG/4.jpeg",
+    fullDescription: "International Women's Day 2025 energized women leaders, changemakers, and organizations around the theme of Accelerate Action. The event highlighted practical pathways to deepen gender inclusion, economic opportunity, and civic participation across Kenya and the region.\n\nParticipants engaged in strategic conversations, advocacy, and experiential learning designed to move commitments into measurable progress. EquiRise supported stakeholders with sessions on women's leadership, workforce inclusion, community resilience, and collaborative action planning.\n\nThe day reaffirmed the urgent need to accelerate policies and programmes that advance women's rights, economic independence, and social empowerment. It was a celebration of progress alongside a call to sustain momentum through partnership, investment, and inclusive systems.",
   },
 ];
 

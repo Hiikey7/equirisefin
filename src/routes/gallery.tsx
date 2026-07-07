@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { } from "react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -14,25 +14,49 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// Images from public/PNG for IWD 2026 gallery
-const iwdImages = [
-  "/PNG/1.jpeg",
-  "/PNG/2.jpeg",
-  "/PNG/3.jpeg",
-  "/PNG/4.jpeg",
-  "/PNG/5.jpeg",
-  "/PNG/6.jpeg",
-  "/PNG/7.jpeg",
-  "/PNG/8.jpeg",
-  "/PNG/9.jpeg",
-  "/PNG/10.jpeg",
-  "/PNG/11.jpeg",
-  "/PNG/12.jpeg",
-  "/PNG/13.jpeg",
+// Images from public/PNG for IWD gallery collections
+const galleryImages = [
+  { src: "/PNG/1.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/2.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/3.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/4.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/5.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/6.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/7.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/8.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/9.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/10.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/11.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/12.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/PNG/13.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+  { src: "/iwd2026/1.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/2.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/3.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/4.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/5.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/6.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/global/1.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
+  { src: "/global/2.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
+  { src: "/global/3.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
+  { src: "/global/4.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
+  { src: "/un/1.jpeg", cap: "UN Women", tag: "unwomen" },
+  { src: "/un/2.jpeg", cap: "UN Women", tag: "unwomen" },
+  { src: "/un/3.jpeg", cap: "UN Women", tag: "unwomen" },
+  { src: "/un/4.jpeg", cap: "UN Women", tag: "unwomen" },
+  { src: "/un/5.jpeg", cap: "UN Women", tag: "unwomen" },
+];
+
+const tabs = [
+  { id: "all", label: "All" },
+  { id: "iwd2025", label: "IWD 2025" },
+  { id: "iwd2026", label: "IWD 2026" },
+  { id: "globalngo2026", label: "Global NGO Summit 2026" },
+  { id: "unwomen", label: "UN Women" },
 ];
 
 function Gallery() {
-  const activeImages = iwdImages.map((src) => ({ src, cap: "IWD 2026" }));
+  const [activeTag, setActiveTag] = useState("all");
+  const activeImages = activeTag === "all" ? galleryImages : galleryImages.filter((image) => image.tag === activeTag);
 
   return (
     <>
@@ -48,8 +72,22 @@ function Gallery() {
 
       <section className="py-16 md:py-24">
         <div className="container-x">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-3xl font-bold">IWD 2026 Gallery</h2>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
+            <div />
+            <div className="flex flex-wrap gap-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTag(tab.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    activeTag === tab.id ? "bg-ink text-ivory" : "bg-muted text-muted-foreground hover:bg-slate-200"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

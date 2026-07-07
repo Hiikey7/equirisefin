@@ -35,13 +35,11 @@ function Profile() {
             <p className="mt-2 text-muted-foreground">Founder & Principal Consultant | EquiRise Consulting</p>
 
             <div className="mt-6">
-              <p>Mary Gloria Awinja is the Founder and Principal Consultant of EquiRise Consulting. She is a procurement and supply chain professional with expertise in organizational development, governance, leadership, and social impact. Throughout her career, she has worked with organizations to strengthen institutional systems, improve operational effectiveness, and support initiatives that create meaningful change.</p>
+              <p>Mary Gloria Awinja is the Founder and Principal Consultant of EquiRise Development Consulting Limited. She is a Procurement and Supply Chain Professional with expertise in organizational development, governance, leadership, gender equality, institutional strengthening, and social impact.</p>
 
-              <p className="mt-4">Mary is passionate about inclusive leadership and believes that organizations achieve their greatest impact when they invest in people, build strong systems, and foster partnerships with the communities they serve. Her professional interests include leadership development, governance, gender equality, institutional strengthening, community engagement, and sustainable development.</p>
+              <p className="mt-4">She has worked across government, development, corporate, and community sectors, supporting organizations to strengthen systems, build leadership capacity, and deliver sustainable development initiatives. Her experience includes strategic partnerships, programme management, organizational development, stakeholder engagement, and capacity strengthening.</p>
 
-              <p className="mt-4">She founded EquiRise Consulting to create a firm that combines strategic advisory with practical implementation, helping organizations navigate complex challenges while delivering measurable and lasting results.</p>
-
-              <p className="mt-4">Under her leadership, EquiRise is committed to becoming a trusted partner for organizations across Africa, supporting leaders and institutions in building resilience, driving innovation, and creating sustainable impact.</p>
+              <p className="mt-4">Mary founded EquiRise with a vision to help organizations and communities address complex challenges through practical consulting and sustainable solutions. She is passionate about building inclusive leadership, strengthening institutions, and creating lasting impact through collaboration, innovation, and evidence-based practice.</p>
             </div>
 
             <div className="mt-8">
