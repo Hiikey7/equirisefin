@@ -1,0 +1,196 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource/urbanist/400.css";
+@import "@fontsource/urbanist/500.css";
+@import "@fontsource/urbanist/600.css";
+@import "@fontsource/urbanist/700.css";
+@import "@fontsource/urbanist/800.css";
+@import "@fontsource/epilogue/400.css";
+@import "@fontsource/epilogue/500.css";
+@import "@fontsource/epilogue/600.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EquiRise Design System
+ * Palette: Green, Orange & Amber — growth, energy, and warmth.
+ * Typography: Urbanist (display/headings) + Epilogue (body).
+ */
+
+@theme inline {
+  --font-display: "Urbanist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Epilogue", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens */
+  --color-green: var(--green);
+  --color-green-dark: var(--green-dark);
+  --color-orange: var(--orange);
+  --color-orange-alt: var(--orange-alt);
+  --color-orange-light: var(--orange-light);
+  --color-amber: var(--amber);
+  --color-gray: var(--gray);
+  --color-ivory: var(--ivory);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette */
+  --green: oklch(0.50 0.21 140);          /* #1A8829 */
+  --green-dark: oklch(0.37 0.15 144);     /* #1A6329 */
+  --orange: oklch(0.56 0.28 42);        /* #F14823 */
+  --orange-alt: oklch(0.59 0.27 49);    /* #F16123 */
+  --orange-light: oklch(0.64 0.22 43);  /* #F7744F */
+  --amber: oklch(0.73 0.20 66);         /* #F7A14F */
+  --gray: oklch(0.61 0 0);              /* #939393 */
+  --ivory: oklch(0.98 0.012 80);        /* warm off-white */
+  --stone: oklch(0.95 0.01 80);         /* soft warm gray */
+  --ink: oklch(0.24 0.02 60);           /* deep warm charcoal */
+
+  --background: oklch(1 0 0);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+
+  --primary: var(--green);
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: var(--green-dark);
+  --secondary-foreground: oklch(0.99 0.005 80);
+  --muted: var(--stone);
+  --muted-foreground: oklch(0.42 0.02 60);
+  --accent: var(--orange-light);
+  --accent-foreground: oklch(0.99 0.005 80);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 80);
+
+  --border: oklch(0.9 0.015 60);
+  --input: oklch(0.9 0.015 60);
+  --ring: var(--green);
+
+  /* Gradients & shadows */
+  --gradient-warm: linear-gradient(135deg, var(--green) 0%, var(--amber) 100%);
+  --gradient-earth: linear-gradient(180deg, var(--ivory) 0%, var(--stone) 100%);
+  --gradient-hero: linear-gradient(120deg, oklch(0.24 0.03 60 / 0.85) 0%, oklch(0.37 0.15 144 / 0.55) 60%, oklch(0.50 0.21 140 / 0.35) 100%);
+
+  --shadow-soft: 0 1px 2px oklch(0.24 0.02 60 / 0.04), 0 8px 24px oklch(0.24 0.02 60 / 0.06);
+  --shadow-warm: 0 20px 60px -20px oklch(0.50 0.21 140 / 0.35);
+  --shadow-ring: 0 0 0 1px oklch(0.9 0.015 60);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+
+  ::selection { background: var(--green); color: var(--primary-foreground); }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+@utility eyebrow-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--amber) 90%, white);
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+@utility gradient-hero-overlay {
+  background: var(--gradient-hero);
+}
+
+@utility rule-green {
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--green);
+    vertical-align: middle;
+    margin-right: 0.75rem;
+  }
+}
