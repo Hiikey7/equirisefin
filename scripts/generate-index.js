@@ -3,7 +3,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const out = path.resolve(__dirname, '..', '.output', 'public');
+const root = path.resolve(__dirname, '..');
+const outputDirs = [
+  path.join(root, '.vercel', 'output', 'static'),
+  path.join(root, '.output', 'public'),
+];
+const preferredOutputDirs = process.env.VERCEL ? outputDirs : outputDirs.toReversed();
+const out =
+  preferredOutputDirs.find((dir) => fs.existsSync(path.join(dir, 'assets'))) ||
+  preferredOutputDirs[0];
 const assetsDir = path.join(out, 'assets');
 
 function findAsset(pattern) {
@@ -40,4 +48,4 @@ const html = `<!doctype html>
 </html>`;
 
 fs.writeFileSync(path.join(out, 'index.html'), html);
-console.log('Wrote .output/public/index.html referencing', indexScript);
+console.log(`Wrote ${path.relative(root, path.join(out, 'index.html'))} referencing`, indexScript);
