@@ -17,12 +17,20 @@ import {
   Plus,
 } from "lucide-react";
 import { useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import heroImg from "@/assets/hero.jpg";
 import impactImg from "@/assets/impact.jpg";
 import communityImg from "@/assets/community.jpg";
 import { serviceAreas, testimonials, events, faqs } from "@/lib/content";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import { BookTrainingForm } from "@/components/BookTrainingForm";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -389,40 +397,121 @@ function EventsSection() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {events.map((e) => {
-            const d = new Date(e.date);
-            return (
-              <article key={e.title} className="group rounded-2xl border border-border bg-card overflow-hidden hover:shadow-[var(--shadow-warm)] transition-all">
-                <div className="aspect-[16/9] bg-gradient-to-br from-green/80 via-amber to-orange-light relative overflow-hidden">
-                  {e.image ? (
-                    <img src={e.image} alt={e.title} className="h-full w-full object-cover" />
-                  ) : (
-                    <div className="h-full w-full" />
-                  )}
-                  <div className="absolute top-4 left-4 rounded-lg bg-card px-3 py-2 text-center shadow-[var(--shadow-soft)]">
-                    <p className="font-display text-xl font-bold leading-none text-green">{d.getDate()}</p>
-                    <p className="text-[0.65rem] uppercase tracking-widest text-muted-foreground mt-1">
-                      {d.toLocaleString("en", { month: "short" })}
-                    </p>
-                  </div>
-                  <span className="absolute top-4 right-4 rounded-full bg-ivory/95 px-3 py-1 text-xs font-semibold text-green-dark">
-                    {e.tag}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg leading-snug group-hover:text-green transition-colors">
-                    {e.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{e.excerpt}</p>
-                  <div className="mt-5 flex items-center gap-4 text-xs text-muted-foreground">
-                    <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" /> {d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}</span>
-                    <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {e.location}</span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+        <div className="mt-12">
+          {/* Mobile: carousel */}
+          <div className="block md:hidden relative">
+            <Carousel
+              className="w-full"
+              opts={{
+                align: "start",
+                loop: false,
+                containScroll: "trimSnaps",
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 6000,
+                }),
+              ]}
+            >
+              <CarouselContent className="space-x-6">
+                {events.map((e, idx) => {
+                  const d = new Date(e.date);
+                  const statusLabel = d > new Date() ? "Upcoming" : "Completed";
+
+                  return (
+                    <CarouselItem key={e.title} className="w-[85%] sm:w-[60%]">
+                      <article className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-[var(--shadow-warm)] transition-all flex flex-col h-full">
+                        <div className="aspect-[16/9] bg-gradient-to-br from-green/80 via-amber to-orange-light relative overflow-hidden">
+                          {e.image ? (
+                            <img src={e.image} alt={e.title} className="h-full w-full object-cover" />
+                          ) : (
+                            <div className="h-full w-full" />
+                          )}
+                          <div className="absolute top-4 left-4 rounded-lg bg-card px-3 py-2 text-center shadow-[var(--shadow-soft)]">
+                            <p className="font-display text-xl font-bold leading-none text-green">{d.getDate()}</p>
+                            <p className="text-[0.65rem] uppercase tracking-widest text-muted-foreground mt-1">
+                              {d.toLocaleString("en", { month: "short" })}
+                            </p>
+                          </div>
+                          <span className="absolute top-4 right-4 rounded-full bg-ivory/95 px-3 py-1 text-xs font-semibold text-green-dark">
+                            {statusLabel}
+                          </span>
+                        </div>
+                        <div className="flex flex-col flex-1 p-6 md:p-8 space-y-4">
+                          <div>
+                            <h2 className="font-display text-lg md:text-xl font-semibold">{e.title}</h2>
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{e.excerpt}</p>
+                          </div>
+                          <div className="space-y-3">
+                            <div className="flex flex-col gap-2 text-xs text-muted-foreground">
+                              <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}</span>
+                              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3 w-3" /> {e.location}</span>
+                            </div>
+                            <div className="flex gap-2">
+                              <span className="flex-1 inline-flex justify-center items-center gap-1.5 rounded-full bg-gray-300 px-4 py-2 text-xs font-semibold text-gray-500 opacity-60">
+                                Register
+                              </span>
+                              <Link to={`/events/${idx.toString()}`} className="flex-1 inline-flex justify-center items-center gap-1.5 rounded-full border border-primary bg-transparent px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/5">
+                                View Details
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <CarouselPrevious className="flex md:hidden" />
+              <CarouselNext className="flex md:hidden" />
+            </Carousel>
+          </div>
+
+          {/* Desktop: grid */}
+          <div className="hidden md:block mt-8">
+            <div className="grid gap-6 md:grid-cols-3">
+              {events.map((e, idx) => {
+                const d = new Date(e.date);
+                const statusLabel = d > new Date() ? "Upcoming" : "Completed";
+                return (
+                  <article key={e.title} className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-[var(--shadow-soft)] transition flex flex-col">
+                    {e.image && (
+                      <div className="aspect-[16/9] w-full overflow-hidden relative">
+                        <img src={e.image} alt={e.title} className="h-full w-full object-cover" />
+                        <div className="absolute top-3 right-3 inline-flex rounded-full bg-green px-3 py-1 text-xs font-semibold text-white">
+                          {statusLabel}
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex flex-col flex-1 p-6 md:p-8 space-y-4">
+                      <div>
+                        <h2 className="font-display text-lg md:text-xl font-semibold">{e.title}</h2>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{e.excerpt}</p>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex flex-col gap-2 text-xs text-muted-foreground">
+                          <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}</span>
+                          <span className="inline-flex items-center gap-1.5"><MapPin className="h-3 w-3" /> {e.location}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          <a className="flex-1 inline-flex justify-center items-center gap-1.5 rounded-full bg-gray-300 px-4 py-2 text-xs font-semibold text-gray-500 cursor-not-allowed opacity-60">
+                            Register
+                          </a>
+                          <Link to={`/events/${idx.toString()}`} className="flex-1 inline-flex justify-center items-center gap-1.5 rounded-full border border-primary bg-transparent px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/5">
+                            View Details
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
