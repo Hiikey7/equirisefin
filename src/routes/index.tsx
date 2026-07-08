@@ -142,7 +142,34 @@ function Partners() {
       </div>
 
       <div className="container-x grid gap-8">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
+        <div className="md:hidden">
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 5000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            opts={{ align: "start", containScroll: "trimSnaps", loop: true }}
+          >
+            <CarouselContent className="space-x-4">
+              {topRowLogos.map((logo, i) => (
+                <CarouselItem key={i} className="w-[calc(33.333%-1rem)]">
+                  <div className="h-20 flex items-center justify-center rounded-2xl bg-card p-3">
+                    <img
+                      src={logo}
+                      alt="Partner logo"
+                      className="h-full w-auto max-w-[140px] object-contain opacity-100"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        <div className="hidden md:grid grid-cols-2 gap-6 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
           {topRowLogos.map((logo, i) => (
             <div key={i} className="h-16 sm:h-20 flex items-center justify-center">
               <img
@@ -156,11 +183,11 @@ function Partners() {
 
         <div className="grid grid-cols-2 gap-6 justify-items-center">
           {secondRowLogos.map((logo, i) => (
-            <div key={i} className="h-16 flex items-center justify-center">
+            <div key={i} className="h-24 sm:h-28 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[160px] object-contain opacity-100"
+                className="h-full w-auto max-w-[220px] object-contain opacity-100"
               />
             </div>
           ))}
