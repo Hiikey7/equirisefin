@@ -124,6 +124,8 @@ function Partners() {
     "/partner/brand-logo-2.png",
     "/partner/brand-logo-3.png",
     "/partner/brand-logo-4.png",
+    "/partner/brand-logo-5.png",
+    "/partner/Bidii Logo.png",
   ];
 
   const secondRowLogos = [
@@ -140,13 +142,13 @@ function Partners() {
       </div>
 
       <div className="container-x grid gap-8">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center justify-items-center">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
           {topRowLogos.map((logo, i) => (
-            <div key={i} className="h-16 sm:h-24 flex items-center justify-center">
+            <div key={i} className="h-16 sm:h-20 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[160px] sm:max-w-[200px] object-contain opacity-100"
+                className="h-full w-auto max-w-[160px] object-contain opacity-100"
               />
             </div>
           ))}
