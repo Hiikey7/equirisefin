@@ -27,9 +27,10 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/95 backdrop-blur-md shadow-[var(--shadow-soft)]" : "bg-background/80 backdrop-blur-sm"
       }`}
+      role="banner"
     >
       <div className="container-x flex items-center justify-between h-18 py-3">
         <Link to="/" className="shrink-0" aria-label="EquiRise home">
