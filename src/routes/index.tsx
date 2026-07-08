@@ -147,17 +147,24 @@ function Partners() {
             className="flex flex-nowrap"
             style={{ animation: "marquee 13s linear infinite" }}
           >
-            {[...topRowLogos, ...topRowLogos].map((logo, i) => (
-              <div key={i} className="w-1/4 flex-shrink-0 flex items-center justify-center">
-                <div className="h-20 flex items-center justify-center rounded-2xl bg-card px-3 py-2">
-                  <img
-                    src={logo}
-                    alt="Partner logo"
-                    className="h-full w-auto max-w-[100px] object-contain opacity-100"
-                  />
+            {[...topRowLogos, ...topRowLogos].map((logo, i) => {
+              const isSmallLogo = logo === "/partner/brand-logo-5.png";
+              return (
+                <div key={i} className="w-1/4 flex-shrink-0 flex items-center justify-center">
+                  <div className="h-20 flex items-center justify-center rounded-2xl bg-card px-3 py-2">
+                    <img
+                      src={logo}
+                      alt="Partner logo"
+                      className={
+                        isSmallLogo
+                          ? "h-auto w-auto max-h-[56px] max-w-[72px] object-contain opacity-100"
+                          : "h-full w-auto max-w-[100px] object-contain opacity-100"
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-0 grid grid-cols-2 gap-0 justify-items-center">
             {secondRowLogos.map((logo, i) => (
