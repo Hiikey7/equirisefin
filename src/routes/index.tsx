@@ -134,14 +134,14 @@ function Partners() {
   ];
 
   return (
-    <section className="py-14 bg-background">
+    <section className="py-12 bg-background">
       <div className="container-x">
         <p className="text-center text-xs uppercase tracking-[0.22em] font-semibold text-muted-foreground mb-8">
           Our Trusted partners & clients
         </p>
       </div>
 
-      <div className="container-x grid gap-8">
+      <div className="container-x grid gap-6">
         <div className="md:hidden">
           <Carousel
             plugins={[
@@ -181,13 +181,13 @@ function Partners() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-6 justify-items-center">
+        <div className="grid grid-cols-2 gap-3 justify-items-center">
           {secondRowLogos.map((logo, i) => (
-            <div key={i} className="h-24 sm:h-28 flex items-center justify-center">
+            <div key={i} className="h-28 sm:h-32 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[220px] object-contain opacity-100"
+                className="h-full w-auto max-w-[260px] object-contain opacity-100"
               />
             </div>
           ))}
@@ -199,7 +199,7 @@ function Partners() {
 
 function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-background">
+    <section id="services" className="pt-16 md:pt-20 pb-24 md:pb-28 bg-background">
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
