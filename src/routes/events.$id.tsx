@@ -42,20 +42,33 @@ function EventDetail() {
 
   const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-  const carouselImages = [
-    "/PNG/1.jpeg",
+  const iwd2025Images = [
     "/PNG/2.jpeg",
     "/PNG/3.jpeg",
     "/PNG/4.jpeg",
     "/PNG/5.jpeg",
+    "/PNG/6.jpeg",
     "/PNG/7.jpeg",
-    "/PNG/8.jpeg",
-    "/PNG/9.jpeg",
-    "/PNG/10.jpeg",
-    "/PNG/11.jpeg",
-    "/PNG/12.jpeg",
-    "/PNG/13.jpeg",
   ];
+
+  const iwd2026Images = [
+    "/iwd2026/1.jpeg",
+    "/iwd2026/1000991140.jpg",
+    "/iwd2026/1000991141.jpg",
+    "/iwd2026/1000991143.jpg",
+    "/iwd2026/1000991144.jpg",
+    "/iwd2026/3.jpeg",
+    "/iwd2026/4.jpeg",
+    "/iwd2026/5.jpeg",
+    "/iwd2026/6.jpeg",
+  ];
+
+  const carouselImages = (() => {
+    if (event.title.includes("2025")) return iwd2025Images;
+    if (event.title.includes("2026")) return iwd2026Images;
+    // fallback: show event image plus a few PNGs
+    return [event.image || "/PNG/1.jpeg", "/PNG/2.jpeg", "/PNG/3.jpeg"];
+  })();
 
   const renderBody = (text: string) =>
     text

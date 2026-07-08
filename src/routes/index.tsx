@@ -174,10 +174,15 @@ function Services() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <h2 className="display-lg max-w-3xl">What we do</h2>
+            <p className="mt-4 text-muted-foreground text-base md:text-lg leading-relaxed font-semibold max-w-3xl">
+              We deliver integrated consulting and capacity-building solutions that strengthen organizations, empower communities, and create measurable impact.
+            </p>
           </div>
-          <p className="lg:col-span-5 text-muted-foreground text-base md:text-lg leading-relaxed">
-            We deliver integrated consulting and capacity-building solutions that strengthen organizations, empower communities, and create measurable impact.
-          </p>
+          <div className="lg:col-span-5">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              We strengthen institutions, empower communities, and create lasting impact through practical consulting, capacity building, and development solutions.
+            </p>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -258,18 +263,15 @@ function Impact() {
           
           {/* Text content */}
           <div>
-            <p className="eyebrow">Our impact</p>
-            <h2 className="mt-4 display-lg">Creating Meaningful Change Through Stronger Organizations</h2>
-            
+            <p className="eyebrow">Our Impact</p>
+            <h2 className="mt-4 display-lg">Creating Stronger Organizations. Empowering Communities.</h2>
+
             <div className="mt-8 space-y-4 text-muted-foreground">
               <p className="text-base leading-relaxed">
-                At EquiRise Consulting, impact is not measured by the number of projects completed but by the lasting difference our work makes for organizations, leaders, and communities.
+                We help organizations strengthen leadership, improve governance, build institutional capacity, and create inclusive workplaces. We also partner with communities to advance health, gender equality, economic empowerment, and sustainable livelihoods.
               </p>
               <p className="text-base leading-relaxed">
-                Every engagement is designed to strengthen institutional capacity, improve leadership, enhance governance, promote inclusion, and support sustainable development.
-              </p>
-              <p className="text-base leading-relaxed">
-                Our vision of impact extends beyond organizational performance. We believe stronger organizations create stronger communities, stronger economies, and better opportunities for future generations.
+                Our impact is reflected in stronger institutions, empowered people, and more resilient communities.
               </p>
             </div>
           </div>
@@ -277,7 +279,7 @@ function Impact() {
 
         {/* Row 2: Commitments in two columns */}
         <div>
-          <h3 className="text-2xl font-display font-bold text-foreground mb-10">We Are Committed To:</h3>
+          <h3 className="text-2xl font-display font-bold text-foreground mb-10">How We Create Impact</h3>
           <div className="grid gap-10 md:grid-cols-2">
             {commitments.map((item) => (
               <div key={item.title} className="flex gap-4">
@@ -319,7 +321,7 @@ function WhyUs() {
     },
     {
       t: "We Focus on Sustainable Impact",
-      d: "Everything we do is designed to strengthen organizations while contributing to broader social and economic development.",
+      d: "Everything we do is designed to strengthen organizations, empower communities, and create lasting social and economic impact.",
     },
   ];
 
@@ -327,8 +329,7 @@ function WhyUs() {
     <section className="py-24 md:py-32 bg-background">
       <div className="container-x">
         <div className="max-w-2xl">
-          <p className="eyebrow">Why choose EquiRise</p>
-          <h2 className="mt-4 display-lg">Why Clients Choose Us</h2>
+          <h2 className="mt-4 display-lg">Why choose EquiRise</h2>
         </div>
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (

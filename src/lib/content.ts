@@ -154,7 +154,7 @@ export const events = [
     location: "Baringo County, Kenya",
     tag: "Upcoming Event",
     excerpt: "Upcoming: Baringo Women Empowerment Programme – 31 July 2026. This programme strengthens women's resilience through economic empowerment, financial literacy, entrepreneurship, mental health, reproductive health, gender equality, and climate-smart livelihoods.",
-    image: "/b.png",
+    image: "/1.webp",
     fullDescription: `Upcoming: Baringo Women Empowerment Programme – 31 July 2026.
 
 On 31 July 2026, a community-based Women Empowerment Programme will be held in Baringo County, bringing together women, community leaders, development partners, and local stakeholders to strengthen women’s social and economic resilience. The programme will focus on economic empowerment, financial literacy, entrepreneurship, mental health and psychosocial well-being, reproductive health, gender equality, and climate-smart livelihoods. Through practical training, expert-led sessions, and community dialogue, participants will gain the knowledge, skills, and networks needed to improve their livelihoods, build sustainable businesses, and enhance the well-being of their families and communities.
@@ -166,23 +166,42 @@ This upcoming initiative reflects our continued commitment to empowering women w
     title: "International Women’s Day 2026 – Give to Gain",
     location: "Nairobi, Kenya",
     tag: "Event",
-    excerpt: "International Women’s Day 2026 centered on Give to Gain, highlighting mentorship, collaboration, community service, women’s leadership, and inclusive opportunity creation.",
+    excerpt: "In celebration of International Women’s Day 2026, we brought together government leaders, development partners, the private sector, and civil society to champion women’s empowerment, environmental sustainability, and inclusive socio-economic development under the theme “Give to Gain.”",
     image: "/i.jpg",
-    fullDescription: `International Women’s Day 2026 – Give to Gain.
+    fullDescription: `International Women’s Day 2026
 
-In celebration of International Women’s Day 2026, under the theme “Give to Gain,” a transformative forum was held to inspire women, leaders, entrepreneurs, and development partners to embrace the power of giving back as a pathway to sustainable growth and collective success.
+Theme: Give to Gain
 
-The event highlighted the importance of mentorship, collaboration, community service, women’s leadership, economic empowerment, and financial inclusion. Through engaging keynote presentations, panel discussions, and networking opportunities, participants explored how investing in others through knowledge sharing, leadership, and opportunity creation strengthens individuals, organizations, and communities.
+In celebration of International Women’s Day 2026, we brought together government leaders, development partners, the private sector, and civil society to champion women’s empowerment, environmental sustainability, and inclusive socio-economic development under the global theme “Give to Gain.”
 
-The event reinforced the belief that when women are empowered to give their skills, time, and leadership, they create lasting impact and unlock greater opportunities for future generations.`,
+Partners
+
+* Safaricom PLC
+* Stima Sacco
+* Federation of Women Lawyers in Kenya (FIDA Kenya)
+* Bidii Girls Programme
+* Ministry of Environment, Climate Change and Forestry
+* Ministry of Gender, Culture and Children’s Services
+* State Department for Children Services
+* Kenya Utalii College
+* Kenya Tourism Board
+* UWEPA - United Women Empowerment Programme Africa
+
+Distinguished Guest Speakers
+
+* Deborah Mlongo Barasa – Cabinet Secretary, Ministry of Environment, Climate Change and Forestry.
+* CPA Carren Achieng Ageng'o – Principal Secretary, State Department for Children Services, Ministry of Gender, Culture and Children’s Services.
+* Fauzia Ali Kimathi – Chief Consumer Business Officer, Safaricom PLC.
+
+The event highlighted the importance of collaboration between government, the private sector, and civil society in advancing women’s leadership, economic empowerment, environmental stewardship, and sustainable development. Through insightful keynote addresses and strategic partnerships, participants explored practical pathways for creating lasting opportunities for women and girls across Kenya.`,
     partners: [
-      { name: "Safaricom", url: "https://www.safaricom.co.ke/", role: "Lead Partner" },
-      { name: "Stima SACCO", url: "https://www.stima-sacco.com/", role: "Partner" },
+      { name: "Safaricom PLC", url: "https://www.safaricom.co.ke/", role: "Lead Partner" },
+      { name: "Stima Sacco", url: "https://www.stima-sacco.com/", role: "Partner" },
+      { name: "Federation of Women Lawyers in Kenya (FIDA Kenya)", url: "https://fidakenya.org/", role: "Partner" },
+      { name: "Bidii Girls Programme", url: "https://www.bidii-girls-programme.org/", role: "Partner" },
       { name: "Kenya Utalii College", url: "https://www.utalii.ac.ke/", role: "Partner" },
-      { name: "Big3 Africa", url: "https://big3africa.com/", role: "Partner" },
-      { name: "Holistic Weight", url: "https://holisticweight.com/", role: "Partner" },
-      { name: "World Union of Female Organisations (WUFOF)", url: "https://wuof.org/", role: "Partner" },
-      { name: "Federation of Women Lawyers Kenya (FIDA Kenya)", url: "https://fidakenya.org/", role: "Partner" },
+      { name: "Kenya Tourism Board", url: "https://www.ktb.go.ke/", role: "Partner" },
+      { name: "UWEPA - United Women Empowerment Programme Africa", url: "https://www.uwepa.org/", role: "Partner" },
     ],
     mediaCoverage: [
       { name: "Capital FM", url: "https://www.capitalfm.co.ke/business/2026/03/embrace-saving-and-investment-for-financial-freedom-women-told/" },
@@ -194,15 +213,25 @@ The event reinforced the belief that when women are empowered to give their skil
     title: "International Women’s Day 2025 – Accelerate Action",
     location: "Nairobi, Kenya",
     tag: "Completed Event",
-    excerpt: "International Women’s Day 2025 gathered women leaders, entrepreneurs, youth, and development partners to accelerate action for gender equality and inclusive empowerment.",
+    excerpt: "On 8 March 2025, we convened women leaders, professionals, entrepreneurs, and community champions to celebrate International Women’s Day under the theme “Accelerate Action.”",
     image: "/PNG/7.jpeg",
-    fullDescription: `International Women’s Day 2025 – Accelerate Action.
+    fullDescription: `International Women’s Day 2025
 
-In celebration of International Women’s Day 2025, under the global theme “Accelerate Action,” a leadership and empowerment forum was held to bring together women leaders, entrepreneurs, professionals, youth, and development partners to champion gender equality and women’s empowerment.
+Theme: Accelerate Action
 
-The event provided a platform for meaningful dialogue on women’s leadership, economic empowerment, financial inclusion, mentorship, and inclusive development. Through inspiring keynote speeches, panel discussions, and networking opportunities, participants gained practical insights, shared experiences, and built valuable connections to drive positive change within their communities and institutions.
+On 8 March 2025, we convened women leaders, professionals, entrepreneurs, and community champions to celebrate International Women’s Day under the global theme “Accelerate Action.” The event focused on advancing women’s leadership, economic empowerment, and meaningful action towards gender equality.
 
-The event reinforced the collective commitment of stakeholders to accelerate action towards a more inclusive, equitable, and empowered future for women and girls.`,
+Partners
+
+* Stima Sacco
+* LeaderShift Group Kenya
+* United Women Empowerment Program Africa (UWEPA)
+
+Guest Speaker
+* Gladys Boss Shollei (Deputy Speaker of the National Assembly)
+* Gloria Orwoba (Senator)
+
+The event provided a platform for dialogue on women’s leadership, economic inclusion, and collaborative action, bringing together government leaders, development partners, civil society organizations, and women leaders committed to accelerating progress toward gender equality.`,
   }
 ];
 
