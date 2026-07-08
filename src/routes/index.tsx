@@ -153,9 +153,9 @@ function Partners() {
             ]}
             opts={{ align: "start", containScroll: "trimSnaps", loop: true }}
           >
-            <CarouselContent className="space-x-4">
+            <CarouselContent className="space-x-2">
               {topRowLogos.map((logo, i) => (
-                <CarouselItem key={i} className="w-[calc(25%-1rem)]">
+                <CarouselItem key={i} className="w-[calc(25%-0.5rem)]">
                   <div className="h-20 flex items-center justify-center rounded-2xl bg-card p-3">
                     <img
                       src={logo}
@@ -169,7 +169,7 @@ function Partners() {
           </Carousel>
         </div>
 
-        <div className="hidden md:grid grid-cols-2 gap-6 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
+        <div className="hidden md:grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
           {topRowLogos.map((logo, i) => (
             <div key={i} className="h-16 sm:h-20 flex items-center justify-center">
               <img
