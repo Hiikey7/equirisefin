@@ -8,7 +8,7 @@ import heroImg from "@/assets/hero.jpg";
 const serviceImages: Record<string, string> = {
   "leadership-organizational-development": "/1.jpg",
   "governance-institutional-strengthening": "/2.jpg",
-  "gender-equality-social-inclusion": "/3.jpg",
+  "gender-equality-social-inclusion": "/g.jpg",
   "social-impact-community-climate": "/4.jpeg",
 };
 

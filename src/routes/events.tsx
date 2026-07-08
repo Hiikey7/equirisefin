@@ -1,6 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
-import { useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { events } from "@/lib/content";
 import {
@@ -22,12 +21,22 @@ export const Route = createFileRoute("/events")({
       { property: "og:description", content: "Trainings, roundtables, and labs for mission-driven leaders." },
     ],
   }),
-  component: Events,
+  component: EventsLayout,
 });
 
-function Events() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
+function EventsLayout() {
+  const location = useLocation();
+  const isIndexRoute = location.pathname === "/events" || location.pathname === "/events/";
+
+  return (
+    <>
+      {isIndexRoute ? <EventsList /> : null}
+      <Outlet />
+    </>
+  );
+}
+
+function EventsList() {
   const carouselImages = [
     "/PNG/1.jpeg",
     "/PNG/2.jpeg",

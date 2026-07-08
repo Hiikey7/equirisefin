@@ -14,27 +14,27 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// Images from public/PNG for IWD gallery collections
-const galleryImages = [
-  { src: "/PNG/1.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/2.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/3.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/4.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/5.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/6.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/7.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/8.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/9.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/10.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/11.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/12.jpeg", cap: "IWD 2025", tag: "iwd2025" },
-  { src: "/PNG/13.jpeg", cap: "IWD 2025", tag: "iwd2025" },
+const iwd2025Images = [2, 3, 4, 5, 6, 7].map((index) => ({
+  src: `/PNG/${index}.jpeg`,
+  cap: "IWD 2025",
+  tag: "iwd2025",
+}));
+
+const iwd2026Images = [
   { src: "/iwd2026/1.jpeg", cap: "IWD 2026", tag: "iwd2026" },
-  { src: "/iwd2026/2.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/1000991140.jpg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/1000991141.jpg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/1000991143.jpg", cap: "IWD 2026", tag: "iwd2026" },
+  { src: "/iwd2026/1000991144.jpg", cap: "IWD 2026", tag: "iwd2026" },
   { src: "/iwd2026/3.jpeg", cap: "IWD 2026", tag: "iwd2026" },
   { src: "/iwd2026/4.jpeg", cap: "IWD 2026", tag: "iwd2026" },
   { src: "/iwd2026/5.jpeg", cap: "IWD 2026", tag: "iwd2026" },
   { src: "/iwd2026/6.jpeg", cap: "IWD 2026", tag: "iwd2026" },
+];
+
+const galleryImages = [
+  ...iwd2025Images,
+  ...iwd2026Images,
   { src: "/global/1.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
   { src: "/global/2.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },
   { src: "/global/3.jpeg", cap: "Global NGO Summit 2026", tag: "globalngo2026" },

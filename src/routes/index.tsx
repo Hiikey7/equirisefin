@@ -48,7 +48,7 @@ const serviceIcons = [Compass, HeartHandshake, ShieldCheck, Building2, Users, Ro
 const serviceImages: Record<string, string> = {
   "leadership-organizational-development": "/1.jpg",
   "governance-institutional-strengthening": "/2.jpg",
-  "gender-equality-social-inclusion": "/services/45.jpg",
+  "gender-equality-social-inclusion": "/g.jpg",
   "social-impact-community-climate": "/4.jpeg",
 };
 
@@ -83,7 +83,7 @@ function Hero() {
           <div className="absolute inset-0 gradient-hero-overlay" />
         </div>
         <div className="container-x py-12 md:py-16 max-w-4xl mr-auto md:pl-[35px]">
-          <p className="text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-ivory/80">
+          <p className="text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-orange-500">
             Leadership|Organizational development|Governance |Gender Equality|Social Impact
           </p>
           <h1 className="mt-6 display-lg text-ivory">
@@ -173,12 +173,7 @@ function Services() {
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="eyebrow">What we do</p>
-            <h2 className="mt-4 display-lg max-w-3xl">
-              Six practice areas.{" "}
-              <span className="text-green italic font-normal">One integrated commitment</span>{" "}
-              to people, culture, and social impact.
-            </h2>
+            <h2 className="display-lg max-w-3xl">What we do</h2>
           </div>
           <p className="lg:col-span-5 text-muted-foreground text-base md:text-lg leading-relaxed">
             We deliver integrated consulting and capacity-building solutions that strengthen organizations, empower communities, and create measurable impact.
@@ -417,6 +412,9 @@ function EventsSection() {
                 {events.map((e, idx) => {
                   const d = new Date(e.date);
                   const statusLabel = d > new Date() ? "Upcoming" : "Completed";
+                  const dateText = e.endDate
+                    ? `${d.toLocaleDateString("en", { day: "numeric", month: "long" })} – ${new Date(e.endDate).toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}`
+                    : d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" });
 
                   return (
                     <CarouselItem key={e.title} className="w-[85%] sm:w-[60%]">
@@ -446,7 +444,7 @@ function EventsSection() {
                           </div>
                           <div className="space-y-3">
                             <div className="flex flex-col gap-2 text-xs text-muted-foreground">
-                              <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}</span>
+                              <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {dateText}</span>
                               <span className="inline-flex items-center gap-1.5"><MapPin className="h-3 w-3" /> {e.location}</span>
                             </div>
                             <div className="flex gap-2">
@@ -475,6 +473,9 @@ function EventsSection() {
               {events.map((e, idx) => {
                 const d = new Date(e.date);
                 const statusLabel = d > new Date() ? "Upcoming" : "Completed";
+                const dateText = e.endDate
+                  ? `${d.toLocaleDateString("en", { day: "numeric", month: "long" })} – ${new Date(e.endDate).toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}`
+                  : d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" });
                 return (
                   <article key={e.title} className="rounded-2xl border border-border bg-card overflow-hidden hover:shadow-[var(--shadow-soft)] transition flex flex-col">
                     {e.image && (
@@ -494,7 +495,7 @@ function EventsSection() {
                       </div>
                       <div className="space-y-3">
                         <div className="flex flex-col gap-2 text-xs text-muted-foreground">
-                          <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {d.toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}</span>
+                          <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3 w-3" /> {dateText}</span>
                           <span className="inline-flex items-center gap-1.5"><MapPin className="h-3 w-3" /> {e.location}</span>
                         </div>
                         <div className="flex gap-2">

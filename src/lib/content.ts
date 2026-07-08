@@ -148,30 +148,33 @@ export const methodology = [
 
 export const events = [
   {
-    date: "2026-09-30",
-    title: "Empowering Women In baringo County MOSEWO.",
+    date: "2026-07-31",
+    endDate: "2026-08-01",
+    title: "Baringo Women Empowerment Programme",
     location: "Baringo County, Kenya",
     tag: "Upcoming Event",
-    excerpt: "A new upcoming event focused on resilient women's health, financial inclusion, economic empowerment, and climate-smart agriculture in Baringo County.",
-    image: "/PNG/4.jpeg",
-    fullDescription: `Building Resilient Women through Health, Financial Inclusion, Economic Empowerment, and Climate-Smart Agriculture is an upcoming event in Baringo County, Kenya. The programme will bring together women leaders, community changemakers, and agricultural practitioners to explore practical pathways that strengthen wellbeing, livelihoods, and climate resilience.
+    excerpt: "Upcoming: Baringo Women Empowerment Programme – 31 July 2026. This programme strengthens women's resilience through economic empowerment, financial literacy, entrepreneurship, mental health, reproductive health, gender equality, and climate-smart livelihoods.",
+    image: "/b.png",
+    fullDescription: `Upcoming: Baringo Women Empowerment Programme – 31 July 2026.
 
-Participants will learn how integrated health services, inclusive finance, enterprise development, and climate-smart farming practices can work together to build stronger, more resilient communities. EquiRise will support local stakeholders with sessions on leadership, financial inclusion, sustainable agriculture, and women-centered economic empowerment.
+On 31 July 2026, a community-based Women Empowerment Programme will be held in Baringo County, bringing together women, community leaders, development partners, and local stakeholders to strengthen women’s social and economic resilience. The programme will focus on economic empowerment, financial literacy, entrepreneurship, mental health and psychosocial well-being, reproductive health, gender equality, and climate-smart livelihoods. Through practical training, expert-led sessions, and community dialogue, participants will gain the knowledge, skills, and networks needed to improve their livelihoods, build sustainable businesses, and enhance the well-being of their families and communities.
 
-The event is designed to accelerate action, deepen collaboration, and equip women with tools to thrive in changing climatic and economic conditions. Location and date are forthcoming, with further details to be shared as the event approaches.`,
+This upcoming initiative reflects our continued commitment to empowering women with practical solutions that foster inclusive development, strengthen community resilience, and create lasting social and economic impact.`,
   },
   {
     date: "2026-03-07",
-    title: "International Women's Day 2026: Give to Gain",
+    title: "International Women’s Day 2026 – Give to Gain",
     location: "Nairobi, Kenya",
     tag: "Event",
-    excerpt: "This Women's Day 2026, the spirit of Give to Gain shines through powerful partnerships supporting women and girls. Join us as organizations and brands come together to create opportunities that empower the next generation of women leaders.",
-    image: "/iwd2026/3.jpeg",
-    fullDescription: `This year's International Women's Day 2026 served as a powerful moment to celebrate the achievements, resilience, and impact of women across communities. Under the theme "Give to Gain," the celebration emphasized the importance of investing in women and girls as a pathway to building stronger and more inclusive societies.
+    excerpt: "International Women’s Day 2026 centered on Give to Gain, highlighting mentorship, collaboration, community service, women’s leadership, and inclusive opportunity creation.",
+    image: "/i.jpg",
+    fullDescription: `International Women’s Day 2026 – Give to Gain.
 
-Throughout the day, the message was clear: when women are given opportunities, knowledge, and support, they are empowered to lead, innovate, and create lasting change. The theme encouraged individuals, organizations, and communities to play an active role in uplifting women by opening doors to mentorship, education, leadership, and economic opportunities.
+In celebration of International Women’s Day 2026, under the theme “Give to Gain,” a transformative forum was held to inspire women, leaders, entrepreneurs, and development partners to embrace the power of giving back as a pathway to sustainable growth and collective success.
 
-The event brought together voices and partners committed to advancing women's empowerment and recognizing the contributions women continue to make in shaping the future. It was a moment of reflection on the progress made toward gender equality while also reaffirming the need for continued collaboration and action.`,
+The event highlighted the importance of mentorship, collaboration, community service, women’s leadership, economic empowerment, and financial inclusion. Through engaging keynote presentations, panel discussions, and networking opportunities, participants explored how investing in others through knowledge sharing, leadership, and opportunity creation strengthens individuals, organizations, and communities.
+
+The event reinforced the belief that when women are empowered to give their skills, time, and leadership, they create lasting impact and unlock greater opportunities for future generations.`,
     partners: [
       { name: "Safaricom", url: "https://www.safaricom.co.ke/", role: "Lead Partner" },
       { name: "Stima SACCO", url: "https://www.stima-sacco.com/", role: "Partner" },
@@ -188,13 +191,19 @@ The event brought together voices and partners committed to advancing women's em
   },
   {
     date: "2025-03-07",
-    title: "International Women's Day 2025: Accelerate Action",
+    title: "International Women’s Day 2025 – Accelerate Action",
     location: "Nairobi, Kenya",
     tag: "Completed Event",
-    excerpt: "International Women's Day 2025 celebrated acceleration, action, and partnership in Nairobi, bringing leaders together to strengthen gender equality and community impact.",
-    image: "/PNG/4.jpeg",
-    fullDescription: "International Women's Day 2025 energized women leaders, changemakers, and organizations around the theme of Accelerate Action. The event highlighted practical pathways to deepen gender inclusion, economic opportunity, and civic participation across Kenya and the region.\n\nParticipants engaged in strategic conversations, advocacy, and experiential learning designed to move commitments into measurable progress. EquiRise supported stakeholders with sessions on women's leadership, workforce inclusion, community resilience, and collaborative action planning.\n\nThe day reaffirmed the urgent need to accelerate policies and programmes that advance women's rights, economic independence, and social empowerment. It was a celebration of progress alongside a call to sustain momentum through partnership, investment, and inclusive systems.",
-  },
+    excerpt: "International Women’s Day 2025 gathered women leaders, entrepreneurs, youth, and development partners to accelerate action for gender equality and inclusive empowerment.",
+    image: "/PNG/7.jpeg",
+    fullDescription: `International Women’s Day 2025 – Accelerate Action.
+
+In celebration of International Women’s Day 2025, under the global theme “Accelerate Action,” a leadership and empowerment forum was held to bring together women leaders, entrepreneurs, professionals, youth, and development partners to champion gender equality and women’s empowerment.
+
+The event provided a platform for meaningful dialogue on women’s leadership, economic empowerment, financial inclusion, mentorship, and inclusive development. Through inspiring keynote speeches, panel discussions, and networking opportunities, participants gained practical insights, shared experiences, and built valuable connections to drive positive change within their communities and institutions.
+
+The event reinforced the collective commitment of stakeholders to accelerate action towards a more inclusive, equitable, and empowered future for women and girls.`,
+  }
 ];
 
 export const testimonials = [

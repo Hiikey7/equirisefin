@@ -1,6 +1,5 @@
-import { createFileRoute, Link, useParams } from "@tanstack/react-router";
-import { CalendarDays, MapPin } from "lucide-react";
-import { useState } from "react";
+﻿import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowLeft, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { events } from "@/lib/content";
 import {
@@ -10,34 +9,38 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/events/$id")({
+  loader: ({ params }) => {
+    const eventIndex = Number.parseInt(params.id ?? "", 10);
+    const event = Number.isInteger(eventIndex) ? events[eventIndex] : undefined;
+
+    if (!event) {
+      throw notFound();
+    }
+
+    return { event };
+  },
   component: EventDetail,
+  notFoundComponent: () => (
+    <div className="container-x py-32 text-center">
+      <h1 className="display-lg">Event not found</h1>
+      <Link to="/events" className="mt-6 inline-flex items-center gap-2 text-green font-semibold">
+        <ArrowLeft className="h-4 w-4" /> Back to events
+      </Link>
+    </div>
+  ),
 });
 
 function EventDetail() {
-  const { id } = useParams({ from: "/events/$id" });
-  const eventIndex = parseInt(id);
-  const event = events[eventIndex];
-
-  if (!event) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold">Event not found</h1>
-          <Link to="/events">
-            <Button variant="outline">Back to Events</Button>
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
+  const { event } = Route.useLoaderData();
   const d = new Date(event.date);
+  const eventDateText = event.endDate
+    ? `${d.toLocaleDateString("en", { day: "numeric", month: "long" })} – ${new Date(event.endDate).toLocaleDateString("en", { day: "numeric", month: "long", year: "numeric" })}`
+    : d.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric" });
+  const statusLabel = new Date(event.date) > new Date() ? "Upcoming" : "Completed";
 
-  // escape regex helper for safe replacements
-  const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&");
+  const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
   const carouselImages = [
     "/PNG/1.jpeg",
@@ -54,115 +57,161 @@ function EventDetail() {
     "/PNG/13.jpeg",
   ];
 
+  const renderBody = (text: string) =>
+    text
+      .split("\n\n")
+      .filter(Boolean)
+      .map((paragraph, idx) => {
+        let processedParagraph = paragraph;
+
+        if (event.partners) {
+          event.partners.forEach((partner) => {
+            const name = partner.name.split(" (")[0];
+            const re = new RegExp(escapeRegExp(name), "g");
+            const link = `<a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="text-green font-semibold hover:text-green-dark">${name}</a>`;
+            processedParagraph = processedParagraph.replace(re, link);
+          });
+        }
+
+        if (event.mediaCoverage) {
+          event.mediaCoverage.forEach((media) => {
+            const re = new RegExp(escapeRegExp(media.name), "g");
+            const link = `<a href="${media.url}" target="_blank" rel="noopener noreferrer" class="text-green font-semibold hover:text-green-dark">${media.name}</a>`;
+            processedParagraph = processedParagraph.replace(re, link);
+          });
+        }
+
+        return (
+          <p key={idx} className="text-lg text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: processedParagraph }} />
+        );
+      });
+
   return (
     <>
-      {/* Hero Image Section */}
-      {event.image && (
-        <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-          <img src={event.image} alt={event.title} className="h-full w-full object-cover" />
-        </div>
-      )}
-
-      {/* Blog Content Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="pt-20 md:pt-28">
         <div className="container-x">
-          <div className="max-w-3xl mx-auto">
-            {/* Title */}
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">{event.title}</h1>
-
-            {/* Excerpt */}
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">{event.excerpt}</p>
-
-            {/* Meta Information */}
-            <div className="flex flex-wrap gap-4 pb-8 border-b border-gray-200 text-sm font-semibold mb-8">
-              <span className="text-gray-600">👤 admin</span>
-              <span className="text-pink-500">Event</span>
-              <span className="text-gray-600 flex items-center gap-1">
-                📅 {d.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric" })}
-              </span>
-            </div>
-
-            {/* Main Content */}
-            <article className="prose prose-lg max-w-none space-y-6 text-gray-700">
-              {event.fullDescription && (
-                <div className="space-y-6">
-                  {event.fullDescription.split("\n\n").map((paragraph, idx) => {
-                    let processedParagraph = paragraph;
-                    
-                    // Replace partner links
-                      if (event.partners) {
-                        event.partners.forEach((partner) => {
-                          const name = partner.name.split(" (")[0];
-                          const re = new RegExp(escapeRegExp(name), "g");
-                          const link = `<a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-600 font-semibold">${name}</a>`;
-                          processedParagraph = processedParagraph.replace(re, link);
-                        });
-                      }
-
-                    // Replace media links
-                      if (event.mediaCoverage) {
-                        event.mediaCoverage.forEach((media) => {
-                          const re = new RegExp(escapeRegExp(media.name), "g");
-                          const link = `<a href="${media.url}" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-600 font-semibold">${media.name}</a>`;
-                          processedParagraph = processedParagraph.replace(re, link);
-                        });
-                      }
-
-                    return (
-                      <p key={idx} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: processedParagraph }} />
-                    );
-                  })}
-                </div>
+          <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[var(--shadow-soft)]">
+            <div className="relative aspect-[16/9] md:aspect-[21/9] w-full">
+              {event.image ? (
+                <img src={event.image} alt={event.title} className="absolute inset-0 h-full w-full object-cover" />
+              ) : (
+                <div className="absolute inset-0 h-full w-full bg-stone/60" />
               )}
-            </article>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
 
-            {/* Event Highlights Section */}
-            <div className="mt-16 pt-16 border-t border-gray-200">
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="font-display text-3xl md:text-4xl font-bold">Event Highlights</h2>
-              </div>
+              <div className="absolute inset-0 flex items-end">
+                <div className="w-full p-8 md:p-12 lg:p-16">
+                  <div className="max-w-3xl">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="rounded-full bg-green px-3 py-1 text-xs font-semibold text-white">{statusLabel}</span>
+                      <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-ivory backdrop-blur-sm">
+                        {event.tag}
+                      </span>
+                    </div>
 
-              <div className="relative">
-                <div className="absolute right-0 -top-6">
-                  <Link to="/gallery">
-                    <Button className="bg-pink-500 hover:bg-pink-600 text-white rounded-full">
-                      View Full Gallery
-                    </Button>
-                  </Link>
+                    <h1 className="mt-5 display-xl text-ivory">{event.title}</h1>
+                    <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-ivory/90">
+                      <span className="inline-flex items-center gap-2">
+                        <CalendarDays className="h-4 w-4" />
+                        {eventDateText}
+                      </span>
+                      <span className="inline-flex items-center gap-2">
+                        <MapPin className="h-4 w-4" />
+                        {event.location}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <Carousel 
-                  className="w-full"
-                  opts={{
-                    align: "start",
-                    loop: true,
-                  }}
-                  plugins={[
-                    Autoplay({
-                      delay: 5000,
-                    }),
-                  ]}
-                >
-                  <CarouselContent>
-                    {carouselImages.map((image, idx) => (
-                      <CarouselItem key={idx} className="basis-full md:basis-1/2 lg:basis-1/3">
-                        <div className="aspect-square w-full overflow-hidden rounded-2xl">
-                          <img src={image} alt={`Gallery ${idx + 1}`} className="h-full w-full object-cover" />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 hidden lg:flex" />
-                  <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 hidden lg:flex" />
-                </Carousel>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
+          <div className="rounded-3xl border border-border bg-card p-8 md:p-10">
+            <p className="eyebrow">Event description</p>
+            <div className="mt-6 space-y-6">{event.fullDescription && renderBody(event.fullDescription)}</div>
+          </div>
+
+          <aside className="space-y-6">
+            <div className="rounded-3xl bg-green-dark p-8 text-ivory">
+              <p className="eyebrow-light">Quick details</p>
+              <h2 className="mt-4 font-display text-2xl font-semibold text-ivory">{event.title}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-ivory/80">{event.excerpt}</p>
+              <div className="mt-6 space-y-4 text-sm text-ivory/80">
+                <div className="flex gap-3">
+                  <CalendarDays className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>{eventDateText}</span>
+                </div>
+                <div className="flex gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>{event.location}</span>
+                </div>
               </div>
             </div>
 
-            {/* Back Button */}
-            <div className="mt-16 pt-12 border-t border-gray-200">
-              <Link to="/events">
-                <Button variant="outline">← Back to All Events</Button>
-              </Link>
+            {event.partners?.length ? (
+              <div className="rounded-3xl border border-border bg-stone/40 p-8">
+                <h3 className="font-display text-xl font-semibold">Partners</h3>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {event.partners.map((partner) => (
+                    <a
+                      key={partner.name}
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground hover:border-green/60 hover:text-green"
+                    >
+                      {partner.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </aside>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-24">
+        <div className="container-x space-y-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Event highlights</p>
+              <h2 className="mt-4 display-lg">Moments from this programme.</h2>
+              <p className="mt-4 text-lg text-muted-foreground">A glimpse into the community, energy, and impact captured during the event.</p>
             </div>
+            <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full border border-primary bg-transparent px-5 py-3 text-sm font-semibold text-primary hover:bg-primary/5">
+              View the gallery <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="relative">
+            <Carousel
+              className="w-full"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}
+            >
+              <CarouselContent>
+                {carouselImages.map((image, idx) => (
+                  <CarouselItem key={idx} className="basis-full md:basis-1/2 lg:basis-1/3">
+                    <div className="aspect-square w-full overflow-hidden rounded-2xl">
+                      <img src={image} alt={`Gallery ${idx + 1}`} className="h-full w-full object-cover" />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 hidden lg:flex" />
+              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 hidden lg:flex" />
+            </Carousel>
           </div>
         </div>
       </section>
