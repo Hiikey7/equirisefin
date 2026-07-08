@@ -91,7 +91,7 @@ function EventDetail() {
       <section className="pt-20 md:pt-28">
         <div className="container-x">
           <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[var(--shadow-soft)]">
-            <div className="relative aspect-[16/9] md:aspect-[21/9] w-full">
+            <div className="relative min-h-[22rem] w-full sm:min-h-[24rem] md:min-h-[28rem] lg:min-h-[30rem]">
               {event.image ? (
                 <img src={event.image} alt={event.title} className="absolute inset-0 h-full w-full object-cover" />
               ) : (
@@ -100,7 +100,7 @@ function EventDetail() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
 
               <div className="absolute inset-0 flex items-end">
-                <div className="w-full p-8 md:p-12 lg:p-16">
+                <div className="w-full p-6 sm:p-8 md:p-12 lg:p-16">
                   <div className="max-w-3xl">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="rounded-full bg-green px-3 py-1 text-xs font-semibold text-white">{statusLabel}</span>
@@ -109,14 +109,16 @@ function EventDetail() {
                       </span>
                     </div>
 
-                    <h1 className="mt-5 display-xl text-ivory">{event.title}</h1>
-                    <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-ivory/90">
+                    <h1 className="mt-5 text-3xl font-semibold leading-tight text-ivory sm:text-4xl md:text-5xl lg:text-6xl break-words">
+                      {event.title}
+                    </h1>
+                    <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-ivory/90 sm:gap-4">
                       <span className="inline-flex items-center gap-2">
-                        <CalendarDays className="h-4 w-4" />
+                        <CalendarDays className="h-4 w-4 shrink-0" />
                         {eventDateText}
                       </span>
                       <span className="inline-flex items-center gap-2">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4 shrink-0" />
                         {event.location}
                       </span>
                     </div>

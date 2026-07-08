@@ -112,13 +112,23 @@
 @layer base {
   * { border-color: var(--color-border); }
 
-  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+  }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -133,10 +143,14 @@
 
 @utility container-x {
   width: 100%;
+  max-width: 100%;
   margin-inline: auto;
-  padding-inline: 1.25rem;
-  max-width: 80rem;
-  @media (min-width: 768px) { padding-inline: 2rem; }
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.25rem; }
+  @media (min-width: 768px) {
+    max-width: 80rem;
+    padding-inline: 2rem;
+  }
 }
 
 @utility eyebrow {
