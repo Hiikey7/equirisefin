@@ -155,12 +155,12 @@ function Partners() {
           >
             <CarouselContent className="space-x-4">
               {topRowLogos.map((logo, i) => (
-                <CarouselItem key={i} className="w-[calc(33.333%-1rem)]">
+                <CarouselItem key={i} className="w-[calc(25%-1rem)]">
                   <div className="h-20 flex items-center justify-center rounded-2xl bg-card p-3">
                     <img
                       src={logo}
                       alt="Partner logo"
-                      className="h-full w-auto max-w-[140px] object-contain opacity-100"
+                      className="h-full w-auto max-w-[120px] object-contain opacity-100"
                     />
                   </div>
                 </CarouselItem>
