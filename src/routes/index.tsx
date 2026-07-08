@@ -119,11 +119,16 @@ function Hero() {
 
 
 function Partners() {
-  const partnerLogos = [
+  const topRowLogos = [
     "/partner/brand-logo-1.png",
     "/partner/brand-logo-2.png",
     "/partner/brand-logo-3.png",
     "/partner/brand-logo-4.png",
+  ];
+
+  const secondRowLogos = [
+    "/partner/g1.png",
+    "/partner/g2.png",
   ];
 
   return (
@@ -133,31 +138,27 @@ function Partners() {
           Our Trusted partners & clients
         </p>
       </div>
-      
-      {/* Mobile grid - 4 logos, smaller */}
-      <div className="md:hidden">
-        <div className="container-x flex gap-4 justify-center flex-wrap">
-          {partnerLogos.map((logo, i) => (
-            <div key={i} className="h-16 flex items-center justify-center">
+
+      <div className="container-x grid gap-8">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 items-center justify-items-center">
+          {topRowLogos.map((logo, i) => (
+            <div key={i} className="h-16 sm:h-24 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[120px] object-contain opacity-100"
+                className="h-full w-auto max-w-[160px] sm:max-w-[200px] object-contain opacity-100"
               />
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Desktop grid - 4 logos */}
-      <div className="hidden md:block">
-        <div className="container-x flex gap-16 justify-center">
-          {partnerLogos.map((logo, i) => (
-            <div key={i} className="h-24 flex items-center justify-center">
+        <div className="grid grid-cols-2 gap-6 justify-items-center">
+          {secondRowLogos.map((logo, i) => (
+            <div key={i} className="h-16 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[200px] object-contain opacity-100"
+                className="h-full w-auto max-w-[160px] object-contain opacity-100"
               />
             </div>
           ))}
