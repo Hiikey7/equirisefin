@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ArrowRight, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -48,6 +48,19 @@ function Contact() {
                 </div>
               </div>
             ))}
+            <div className="mt-4 flex gap-3">
+              <a href="https://www.facebook.com/profile.php?id=61591722233889" aria-label="Facebook" className="h-9 w-9 grid place-items-center rounded-full bg-green/10 hover:bg-green transition-colors">
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a href="https://www.instagram.com/equiriseconsultants?igsh=NDY1cWN6MWppdG5j" aria-label="Instagram" className="h-9 w-9 grid place-items-center rounded-full bg-green/10 hover:bg-green transition-colors">
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a href="https://www.tiktok.com/@equiriseconsultants?is_from_webapp=1&sender_device=pc" aria-label="TikTok" className="h-9 w-9 grid place-items-center rounded-full bg-green/10 hover:bg-green transition-colors">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M9.5 2v8.5a4.5 4.5 0 1 0 4.5-4.5V2a6.5 6.5 0 1 1-6.5 6.5V2z" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-7">

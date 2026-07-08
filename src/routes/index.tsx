@@ -134,42 +134,45 @@ function Partners() {
   ];
 
   return (
-    <section className="py-12 bg-background">
+    <section className="pb-8 pt-12 bg-background">
       <div className="container-x">
         <p className="text-center text-xs uppercase tracking-[0.22em] font-semibold text-muted-foreground mb-8">
           Our Trusted partners & clients
         </p>
       </div>
 
-      <div className="container-x grid gap-4">
-        <div className="md:hidden">
-          <Carousel
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            opts={{ align: "start", containScroll: "trimSnaps", loop: true }}
+      <div className="container-x grid gap-2">
+        <div className="md:hidden overflow-hidden">
+          <div
+            className="flex flex-nowrap"
+            style={{ animation: "marquee 13s linear infinite" }}
           >
-            <CarouselContent className="space-x-2">
-              {topRowLogos.map((logo, i) => (
-                <CarouselItem key={i} className="w-[calc(25%-0.5rem)]">
-                  <div className="h-20 flex items-center justify-center rounded-2xl bg-card p-3">
-                    <img
-                      src={logo}
-                      alt="Partner logo"
-                      className="h-full w-auto max-w-[120px] object-contain opacity-100"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+            {[...topRowLogos, ...topRowLogos].map((logo, i) => (
+              <div key={i} className="w-1/4 flex-shrink-0 flex items-center justify-center">
+                <div className="h-20 flex items-center justify-center rounded-2xl bg-card px-3 py-2">
+                  <img
+                    src={logo}
+                    alt="Partner logo"
+                    className="h-full w-auto max-w-[100px] object-contain opacity-100"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-0 grid grid-cols-2 gap-0 justify-items-center">
+            {secondRowLogos.map((logo, i) => (
+              <div key={i} className="h-32 flex items-center justify-center">
+                <img
+                  src={logo}
+                  alt="Partner logo"
+                  className="h-full w-auto max-w-[140px] object-contain opacity-100"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="hidden md:grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
+        <div className="hidden md:grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-6 items-center justify-items-center">
           {topRowLogos.map((logo, i) => (
             <div key={i} className="h-16 sm:h-20 flex items-center justify-center">
               <img
@@ -181,7 +184,7 @@ function Partners() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-1 justify-items-center">
+        <div className="hidden md:grid grid-cols-2 gap-1 justify-items-center">
           {secondRowLogos.map((logo, i) => (
             <div key={i} className="h-36 sm:h-40 flex items-center justify-center">
               <img
@@ -199,7 +202,7 @@ function Partners() {
 
 function Services() {
   return (
-    <section id="services" className="pt-10 md:pt-12 pb-20 md:pb-24 bg-background">
+    <section id="services" className="pt-6 md:pt-8 pb-20 md:pb-24 bg-background">
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

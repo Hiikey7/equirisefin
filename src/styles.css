@@ -193,6 +193,23 @@
   letter-spacing: -0.03em;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 25%;
+  padding-inline: 0.75rem;
+}
+
 @utility gradient-hero-overlay {
   background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.8) 100%);
 }
