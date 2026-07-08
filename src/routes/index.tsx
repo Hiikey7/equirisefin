@@ -141,7 +141,7 @@ function Partners() {
         </p>
       </div>
 
-      <div className="container-x grid gap-6">
+      <div className="container-x grid gap-4">
         <div className="md:hidden">
           <Carousel
             plugins={[
@@ -181,13 +181,13 @@ function Partners() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-3 justify-items-center">
+        <div className="grid grid-cols-2 gap-1 justify-items-center">
           {secondRowLogos.map((logo, i) => (
-            <div key={i} className="h-28 sm:h-32 flex items-center justify-center">
+            <div key={i} className="h-36 sm:h-40 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Partner logo"
-                className="h-full w-auto max-w-[260px] object-contain opacity-100"
+                className="h-full w-auto max-w-[300px] object-contain opacity-100"
               />
             </div>
           ))}
@@ -199,7 +199,7 @@ function Partners() {
 
 function Services() {
   return (
-    <section id="services" className="pt-16 md:pt-20 pb-24 md:pb-28 bg-background">
+    <section id="services" className="pt-10 md:pt-12 pb-20 md:pb-24 bg-background">
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
